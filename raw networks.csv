@@ -1,0 +1,145 @@
+,site,sitepair,Treatment,Organism,metric,value,pollrich,plantrich
+1,whor,who,Prairie Strip,Wasp,NODF,26.24521073,7,26
+2,whor,who,Prairie Strip,Wasp,links per species,1.2,7,26
+3,whor,who,Prairie Strip,Wasp,CC Overall,0.166666667,7,26
+4,whor,who,Prairie Strip,Wasp,CC Pollinator,0.344017094,7,26
+5,whor,who,Prairie Strip,Wasp,CC Plants,0.296703297,7,26
+6,whor,who,Prairie Strip,Wasp,ISA,-0.048571429,7,26
+7,whoc,who,Field Margin,Wasp,NODF,57.53424658,10,19
+8,whoc,who,Field Margin,Wasp,links per species,1.111111111,10,19
+9,whoc,who,Field Margin,Wasp,CC Overall,0.25,10,19
+10,whoc,who,Field Margin,Wasp,CC Pollinator,0.337962963,10,19
+11,whoc,who,Field Margin,Wasp,CC Plants,0.67037037,10,19
+12,whoc,who,Field Margin,Wasp,ISA,0.166666667,10,19
+13,stor,sto,Prairie Strip,Wasp,NODF,30.44025157,8,22
+14,stor,sto,Prairie Strip,Wasp,links per species,1.095238095,8,22
+15,stor,sto,Prairie Strip,Wasp,CC Overall,0.153846154,8,22
+16,stor,sto,Prairie Strip,Wasp,CC Pollinator,0.35483871,8,22
+17,stor,sto,Prairie Strip,Wasp,CC Plants,0.330645161,8,22
+18,stor,sto,Prairie Strip,Wasp,ISA,-0.049404762,8,22
+19,stoc,sto,Field Margin,Wasp,NODF,44.27390791,12,20
+20,stoc,sto,Field Margin,Wasp,links per species,1.260869565,12,20
+21,stoc,sto,Field Margin,Wasp,CC Overall,0.181818182,12,20
+22,stoc,sto,Field Margin,Wasp,CC Pollinator,0.465564738,12,20
+23,stoc,sto,Field Margin,Wasp,CC Plants,0.430555556,12,20
+24,stoc,sto,Field Margin,Wasp,ISA,0.011654135,12,20
+25,smir,smi,Prairie Strip,Wasp,NODF,0,2,19
+26,smir,smi,Prairie Strip,Wasp,links per species,0.777777778,2,19
+27,smir,smi,Prairie Strip,Wasp,CC Overall,0.5,2,19
+28,smir,smi,Prairie Strip,Wasp,CC Pollinator,0.607142857,2,19
+29,smir,smi,Prairie Strip,Wasp,CC Plants,0.5,2,19
+30,smir,smi,Prairie Strip,Wasp,ISA,-0.4,2,19
+31,smer,sme,Prairie Strip,Wasp,NODF,54.86590038,7,25
+32,smer,sme,Prairie Strip,Wasp,links per species,1.631578947,7,25
+33,smer,sme,Prairie Strip,Wasp,CC Overall,0.333333333,7,25
+34,smer,sme,Prairie Strip,Wasp,CC Pollinator,0.543478261,7,25
+35,smer,sme,Prairie Strip,Wasp,CC Plants,0.462732919,7,25
+36,smer,sme,Prairie Strip,Wasp,ISA,-0.087555022,7,25
+37,gutr,gut,Prairie Strip,Wasp,NODF,25.23560209,11,28
+38,gutr,gut,Prairie Strip,Wasp,links per species,1.321428571,11,28
+39,gutr,gut,Prairie Strip,Wasp,CC Overall,0.117647059,11,28
+40,gutr,gut,Prairie Strip,Wasp,CC Pollinator,0.317226891,11,28
+41,gutr,gut,Prairie Strip,Wasp,CC Plants,0.25,11,28
+42,gutr,gut,Prairie Strip,Wasp,ISA,-0.059242424,11,28
+43,gutc,gut,Field Margin,Wasp,NODF,50,5,15
+44,gutc,gut,Field Margin,Wasp,links per species,1,5,15
+45,gutc,gut,Field Margin,Wasp,CC Overall,0.125,5,15
+46,gutc,gut,Field Margin,Wasp,CC Pollinator,0.570652174,5,15
+47,gutc,gut,Field Margin,Wasp,CC Plants,0.47826087,5,15
+48,gutc,gut,Field Margin,Wasp,ISA,0.053409091,5,15
+49,whor,who,Prairie Strip,Combined,NODF,34.56619913,20,38
+50,whor,who,Prairie Strip,Combined,links per species,1.92,20,38
+51,whor,who,Prairie Strip,Combined,CC Overall,0.133333333,20,38
+52,whor,who,Prairie Strip,Combined,CC Pollinator,0.239802632,20,38
+53,whor,who,Prairie Strip,Combined,CC Plants,0.418092105,20,38
+54,whor,who,Prairie Strip,Combined,ISA,-0.026180399,20,38
+55,whoc,who,Field Margin,Combined,NODF,25.76998051,19,30
+56,whoc,who,Field Margin,Combined,links per species,1.289473684,19,30
+57,whoc,who,Field Margin,Combined,CC Overall,0.105263158,19,30
+58,whoc,who,Field Margin,Combined,CC Pollinator,0.198446937,19,30
+59,whoc,who,Field Margin,Combined,CC Plants,0.301121657,19,30
+60,whoc,who,Field Margin,Combined,ISA,0.046396396,19,30
+61,stor,sto,Prairie Strip,Combined,NODF,40.99188791,25,36
+62,stor,sto,Prairie Strip,Combined,links per species,2.226415094,25,36
+63,stor,sto,Prairie Strip,Combined,CC Overall,0.142857143,25,36
+64,stor,sto,Prairie Strip,Combined,CC Pollinator,0.301355579,25,36
+65,stor,sto,Prairie Strip,Combined,CC Plants,0.370072993,25,36
+66,stor,sto,Prairie Strip,Combined,ISA,-0.019821952,25,36
+67,stoc,sto,Field Margin,Combined,NODF,30.33403429,28,39
+68,stoc,sto,Field Margin,Combined,links per species,1.847457627,28,39
+69,stoc,sto,Field Margin,Combined,CC Overall,0.096774194,28,39
+70,stoc,sto,Field Margin,Combined,CC Pollinator,0.227047146,28,39
+71,stoc,sto,Field Margin,Combined,CC Plants,0.339285714,28,39
+72,stoc,sto,Field Margin,Combined,ISA,0.033269252,28,39
+73,smir,smi,Prairie Strip,Combined,NODF,42.92451728,15,33
+74,smir,smi,Prairie Strip,Combined,links per species,2,15,33
+75,smir,smi,Prairie Strip,Combined,CC Overall,0.19047619,15,33
+76,smir,smi,Prairie Strip,Combined,CC Pollinator,0.345238095,15,33
+77,smir,smi,Prairie Strip,Combined,CC Plants,0.409791667,15,33
+78,smir,smi,Prairie Strip,Combined,ISA,-0.060105176,15,33
+79,smer,sme,Prairie Strip,Combined,NODF,41.5777316,25,39
+80,smer,sme,Prairie Strip,Combined,links per species,2.647058824,25,39
+81,smer,sme,Prairie Strip,Combined,CC Overall,0.192307692,25,39
+82,smer,sme,Prairie Strip,Combined,CC Pollinator,0.346386242,25,39
+83,smer,sme,Prairie Strip,Combined,CC Plants,0.362900302,25,39
+84,smer,sme,Prairie Strip,Combined,ISA,0.00445473,25,39
+85,gutr,gut,Prairie Strip,Combined,NODF,28.98176947,31,42
+86,gutr,gut,Prairie Strip,Combined,links per species,2.428571429,31,42
+87,gutr,gut,Prairie Strip,Combined,CC Overall,0.15625,31,42
+88,gutr,gut,Prairie Strip,Combined,CC Pollinator,0.22329344,31,42
+89,gutr,gut,Prairie Strip,Combined,CC Plants,0.292724777,31,42
+90,gutr,gut,Prairie Strip,Combined,ISA,0.006625776,31,42
+91,gutc,gut,Field Margin,Combined,NODF,42.82592593,15,23
+92,gutc,gut,Field Margin,Combined,links per species,1.516129032,15,23
+93,gutc,gut,Field Margin,Combined,CC Overall,0.125,15,23
+94,gutc,gut,Field Margin,Combined,CC Pollinator,0.431144068,15,23
+95,gutc,gut,Field Margin,Combined,CC Plants,0.383050847,15,23
+96,gutc,gut,Field Margin,Combined,ISA,-0.014894389,15,23
+97,whor,who,Prairie Strip,Bee,NODF,41.07726929,13,33
+98,whor,who,Prairie Strip,Bee,links per species,1.736842105,13,33
+99,whor,who,Prairie Strip,Bee,CC Overall,0.2,13,33
+100,whor,who,Prairie Strip,Bee,CC Pollinator,0.296031746,13,33
+101,whor,who,Prairie Strip,Bee,CC Plants,0.47008547,13,33
+102,whor,who,Prairie Strip,Bee,ISA,-0.061456208,13,33
+103,whoc,who,Field Margin,Bee,NODF,20.99358974,9,27
+104,whoc,who,Field Margin,Bee,links per species,1.16,9,27
+105,whoc,who,Field Margin,Bee,CC Overall,0.1875,9,27
+106,whoc,who,Field Margin,Bee,CC Pollinator,0.288602941,9,27
+107,whoc,who,Field Margin,Bee,CC Plants,0.235294118,9,27
+108,whoc,who,Field Margin,Bee,ISA,-0.035714286,9,27
+109,stor,sto,Prairie Strip,Bee,NODF,45.65305988,17,34
+110,stor,sto,Prairie Strip,Bee,links per species,2.209302326,17,34
+111,stor,sto,Prairie Strip,Bee,CC Overall,0.192307692,17,34
+112,stor,sto,Prairie Strip,Bee,CC Pollinator,0.343304843,17,34
+113,stor,sto,Prairie Strip,Bee,CC Plants,0.452432825,17,34
+114,stor,sto,Prairie Strip,Bee,ISA,-0.028793974,17,34
+115,stoc,sto,Field Margin,Bee,NODF,36.54096317,16,35
+116,stoc,sto,Field Margin,Bee,links per species,1.790697674,16,35
+117,stoc,sto,Field Margin,Bee,CC Overall,0.111111111,16,35
+118,stoc,sto,Field Margin,Bee,CC Pollinator,0.280163599,16,35
+119,stoc,sto,Field Margin,Bee,CC Plants,0.459355828,16,35
+120,stoc,sto,Field Margin,Bee,ISA,-0.00169388,16,35
+121,smir,smi,Prairie Strip,Bee,NODF,45.23572781,13,33
+122,smir,smi,Prairie Strip,Bee,links per species,1.911764706,13,33
+123,smir,smi,Prairie Strip,Bee,CC Overall,0.19047619,13,33
+124,smir,smi,Prairie Strip,Bee,CC Pollinator,0.350803958,13,33
+125,smir,smi,Prairie Strip,Bee,CC Plants,0.443806194,13,33
+126,smir,smi,Prairie Strip,Bee,ISA,-0.088662761,13,33
+127,smer,sme,Prairie Strip,Bee,NODF,45.72229891,17,39
+128,smer,sme,Prairie Strip,Bee,links per species,2.348837209,17,39
+129,smer,sme,Prairie Strip,Bee,CC Overall,0.230769231,17,39
+130,smer,sme,Prairie Strip,Bee,CC Pollinator,0.365316178,17,39
+131,smer,sme,Prairie Strip,Bee,CC Plants,0.414067406,17,39
+132,smer,sme,Prairie Strip,Bee,ISA,-0.010848845,17,39
+133,gutr,gut,Prairie Strip,Bee,NODF,38.93999905,20,36
+134,gutr,gut,Prairie Strip,Bee,links per species,2.52173913,20,36
+135,gutr,gut,Prairie Strip,Bee,CC Overall,0.211538462,20,36
+136,gutr,gut,Prairie Strip,Bee,CC Pollinator,0.291524847,20,36
+137,gutr,gut,Prairie Strip,Bee,CC Plants,0.385176991,20,36
+138,gutr,gut,Prairie Strip,Bee,ISA,-0.006764606,20,36
+139,gutc,gut,Field Margin,Bee,NODF,46.83333333,10,22
+140,gutc,gut,Field Margin,Bee,links per species,1.36,10,22
+141,gutc,gut,Field Margin,Bee,CC Overall,0.166666667,10,22
+142,gutc,gut,Field Margin,Bee,CC Pollinator,0.49754386,10,22
+143,gutc,gut,Field Margin,Bee,CC Plants,0.482105263,10,22
+144,gutc,gut,Field Margin,Bee,ISA,-0.092427825,10,22

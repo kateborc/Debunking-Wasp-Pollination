@@ -1,0 +1,145 @@
+"","X","site","treatment","Organism","metric","value"
+"1",1,"whor","r","Wasp","CC Overall",0.166666666666667
+"2",2,"whor","r","Wasp","CC Pollinators",0.344017094017094
+"3",3,"whor","r","Wasp","CC Plants",0.296703296703297
+"4",4,"whor","r","Wasp","NODF",26.2452107279693
+"5",5,"whor","r","Wasp","Links per Species",1.2
+"6",6,"whor","r","Wasp","ISA",-0.0485714285714286
+"7",7,"whor","r","Combined","CC Overall",0.239988440524044
+"8",8,"whor","r","Combined","CC Pollinators",0.392167716864106
+"9",9,"whor","r","Combined","CC Plants",0.475622212728591
+"10",10,"whor","r","Combined","NODF",38.8095368557382
+"11",11,"whor","r","Combined","Links per Species",1.17439364041419
+"12",12,"whor","r","Combined","ISA",-0.115472473235429
+"13",13,"whor","r","Bee","CC Overall",0.247000790437633
+"14",14,"whor","r","Bee","CC Pollinators",0.400947306727818
+"15",15,"whor","r","Bee","CC Plants",0.514563267915211
+"16",16,"whor","r","Bee","NODF",42.9111798958837
+"17",17,"whor","r","Bee","Links per Species",1.28670242450632
+"18",18,"whor","r","Bee","ISA",-0.122626637345358
+"19",19,"whoc","c","Wasp","CC Overall",0.27147619047619
+"20",20,"whoc","c","Wasp","CC Pollinators",0.359367610907611
+"21",21,"whoc","c","Wasp","CC Plants",0.676001975308642
+"22",22,"whoc","c","Wasp","NODF",57.4825846018232
+"23",23,"whoc","c","Wasp","Links per Species",1.08992598039216
+"24",24,"whoc","c","Wasp","ISA",0.167786363636364
+"25",25,"whoc","c","Combined","CC Overall",0.191306218781219
+"26",26,"whoc","c","Combined","CC Pollinators",0.304589661165757
+"27",27,"whoc","c","Combined","CC Plants",0.364764582662712
+"28",28,"whoc","c","Combined","NODF",23.5082600461274
+"29",29,"whoc","c","Combined","Links per Species",0.88838683427295
+"30",30,"whoc","c","Combined","ISA",NA
+"31",31,"whoc","c","Bee","CC Overall",0.183620498945499
+"32",32,"whoc","c","Bee","CC Pollinators",0.307950365901939
+"33",33,"whoc","c","Bee","CC Plants",0.250874181544291
+"34",34,"whoc","c","Bee","NODF",20.0680631452507
+"35",35,"whoc","c","Bee","Links per Species",1.03265922109292
+"36",36,"whoc","c","Bee","ISA",-0.0285582776429797
+"37",37,"stor","r","Wasp","CC Overall",0.153846153846154
+"38",38,"stor","r","Wasp","CC Pollinators",0.354838709677419
+"39",39,"stor","r","Wasp","CC Plants",0.330645161290323
+"40",40,"stor","r","Wasp","NODF",30.440251572327
+"41",41,"stor","r","Wasp","Links per Species",1.0952380952381
+"42",42,"stor","r","Wasp","ISA",-0.0494047619047619
+"43",43,"stor","r","Combined","CC Overall",0.251436469739411
+"44",44,"stor","r","Combined","CC Pollinators",0.453349401786971
+"45",45,"stor","r","Combined","CC Plants",0.455464547559219
+"46",46,"stor","r","Combined","NODF",42.7944107645027
+"47",47,"stor","r","Combined","Links per Species",1.26183941054347
+"48",48,"stor","r","Combined","ISA",-0.102618750603715
+"49",49,"stor","r","Bee","CC Overall",0.270537434297728
+"50",50,"stor","r","Bee","CC Pollinators",0.451475802395702
+"51",51,"stor","r","Bee","CC Plants",0.5111085121291
+"52",52,"stor","r","Bee","NODF",48.3911164182157
+"53",53,"stor","r","Bee","Links per Species",1.43669146483615
+"54",54,"stor","r","Bee","ISA",-0.0767578713320457
+"55",55,"stoc","c","Wasp","CC Overall",0.181818181818182
+"56",56,"stoc","c","Wasp","CC Pollinators",0.465564738292011
+"57",57,"stoc","c","Wasp","CC Plants",0.430555555555556
+"58",58,"stoc","c","Wasp","NODF",44.2739079102715
+"59",59,"stoc","c","Wasp","Links per Species",1.26086956521739
+"60",60,"stoc","c","Wasp","ISA",0.0116541353383459
+"61",61,"stoc","c","Combined","CC Overall",0.196018201243201
+"62",62,"stoc","c","Combined","CC Pollinators",0.365323199828042
+"63",63,"stoc","c","Combined","CC Plants",0.417241559717337
+"64",64,"stoc","c","Combined","NODF",35.3558560265958
+"65",65,"stoc","c","Combined","Links per Species",1.1746774086472
+"66",66,"stoc","c","Combined","ISA",NA
+"67",67,"stoc","c","Bee","CC Overall",0.20738334818776
+"68",68,"stoc","c","Bee","CC Pollinators",0.343144855502225
+"69",69,"stoc","c","Bee","CC Plants",0.495697948526956
+"70",70,"stoc","c","Bee","NODF",39.7527210753092
+"71",71,"stoc","c","Bee","Links per Species",1.37557553195178
+"72",72,"stoc","c","Bee","ISA",0.054642923923056
+"73",73,"smir","r","Wasp","CC Overall",0.5
+"74",74,"smir","r","Wasp","CC Pollinators",0.607142857142857
+"75",75,"smir","r","Wasp","CC Plants",0.5
+"76",76,"smir","r","Wasp","NODF",0
+"77",77,"smir","r","Wasp","Links per Species",0.777777777777778
+"78",78,"smir","r","Wasp","ISA",-0.4
+"79",79,"smir","r","Combined","CC Overall",0.220606887556888
+"80",80,"smir","r","Combined","CC Pollinators",0.395452612395837
+"81",81,"smir","r","Combined","CC Plants",0.443669778050324
+"82",82,"smir","r","Combined","NODF",44.4743322183027
+"83",83,"smir","r","Combined","Links per Species",1.5079424009325
+"84",84,"smir","r","Combined","ISA",-0.0289703236673537
+"85",85,"smir","r","Bee","CC Overall",0.223749378072907
+"86",86,"smir","r","Bee","CC Pollinators",0.379381511871611
+"87",87,"smir","r","Bee","CC Plants",0.471526238572608
+"88",88,"smir","r","Bee","NODF",46.0658075486634
+"89",89,"smir","r","Bee","Links per Species",1.58081369940923
+"90",90,"smir","r","Bee","ISA",-0.0472712290601462
+"91",91,"smer","r","Wasp","CC Overall",0.333333333333333
+"92",92,"smer","r","Wasp","CC Pollinators",0.543478260869565
+"93",93,"smer","r","Wasp","CC Plants",0.462732919254658
+"94",94,"smer","r","Wasp","NODF",54.8659003831418
+"95",95,"smer","r","Wasp","Links per Species",1.63157894736842
+"96",96,"smer","r","Wasp","ISA",-0.0875550220088035
+"97",97,"smer","r","Combined","CC Overall",0.276994068044958
+"98",98,"smer","r","Combined","CC Pollinators",0.442294509896844
+"99",99,"smer","r","Combined","CC Plants",0.433224043188158
+"100",100,"smer","r","Combined","NODF",40.4184202400434
+"101",101,"smer","r","Combined","Links per Species",1.31054126280414
+"102",102,"smer","r","Combined","ISA",-0.076546112803832
+"103",103,"smer","r","Bee","CC Overall",0.286532013166572
+"104",104,"smer","r","Bee","CC Pollinators",0.460362426819409
+"105",105,"smer","r","Bee","CC Plants",0.479883004343122
+"106",106,"smer","r","Bee","NODF",46.3182758245361
+"107",107,"smer","r","Bee","Links per Species",1.37136090276611
+"108",108,"smer","r","Bee","ISA",-0.0545009134880273
+"109",109,"gutr","r","Wasp","CC Overall",0.117647058823529
+"110",110,"gutr","r","Wasp","CC Pollinators",0.317226890756303
+"111",111,"gutr","r","Wasp","CC Plants",0.25
+"112",112,"gutr","r","Wasp","NODF",25.2356020942408
+"113",113,"gutr","r","Wasp","Links per Species",1.32142857142857
+"114",114,"gutr","r","Wasp","ISA",-0.0592424242424242
+"115",115,"gutr","r","Combined","CC Overall",0.210364970100419
+"116",116,"gutr","r","Combined","CC Pollinators",0.321135198338119
+"117",117,"gutr","r","Combined","CC Plants",0.341545961616513
+"118",118,"gutr","r","Combined","NODF",31.0323910791766
+"119",119,"gutr","r","Combined","Links per Species",1.41136280633022
+"120",120,"gutr","r","Combined","ISA",-0.0320638047349551
+"121",121,"gutr","r","Bee","CC Overall",0.257282487430011
+"122",122,"gutr","r","Bee","CC Pollinators",0.350632660531861
+"123",123,"gutr","r","Bee","CC Plants",0.410384805635696
+"124",124,"gutr","r","Bee","NODF",39.9616733964501
+"125",125,"gutr","r","Bee","Links per Species",1.77845121843249
+"126",126,"gutr","r","Bee","ISA",-0.0313043488990459
+"127",127,"gutc","c","Wasp","CC Overall",0.125
+"128",128,"gutc","c","Wasp","CC Pollinators",0.570652173913043
+"129",129,"gutc","c","Wasp","CC Plants",0.478260869565217
+"130",130,"gutc","c","Wasp","NODF",50
+"131",131,"gutc","c","Wasp","Links per Species",1
+"132",132,"gutc","c","Wasp","ISA",0.0534090909090909
+"133",133,"gutc","c","Combined","CC Overall",0.216065709290709
+"134",134,"gutc","c","Combined","CC Pollinators",0.481432784286257
+"135",135,"gutc","c","Combined","CC Plants",0.459401460314769
+"136",136,"gutc","c","Combined","NODF",41.4926949399808
+"137",137,"gutc","c","Combined","Links per Species",1.15861963885526
+"138",138,"gutc","c","Combined","ISA",0.00410056274532386
+"139",139,"gutc","c","Bee","CC Overall",0.182052544677545
+"140",140,"gutc","c","Bee","CC Pollinators",0.499429490314426
+"141",141,"gutc","c","Bee","CC Plants",0.509076388832853
+"142",142,"gutc","c","Bee","NODF",45.6235307164683
+"143",143,"gutc","c","Bee","Links per Species",1.20743051918916
+"144",144,"gutc","c","Bee","ISA",-0.0377378547920044

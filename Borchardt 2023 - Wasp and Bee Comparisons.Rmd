@@ -1,0 +1,804 @@
+---
+title: "Untitled"
+output: html_document
+---
+
+```{r}
+library(bipartite)
+library(lme4)
+library(vegan)
+library(MASS)
+library(ggplot2)
+library(emmeans)
+library(lme4)
+```
+
+#Networks
+```{r}
+#wcont <- read.csv("wasp control.csv") #change with new file path
+wcont
+wcon <- as.matrix(wcont[,2:19])
+dimnames(wcon)[[1]] <- wcont[,1]
+
+#wrestt <- read.csv("wasp restored.csv")
+wrestt
+wrest <- as.matrix(wrestt[,2:18])
+dimnames(wrest)[[1]] <- wrestt[,1]
+
+#brestt <- read.csv("bee restored.csv")
+brestt
+brest <- as.matrix(brestt[,2:30])
+dimnames(brest)[[1]] <- brestt[,1]
+
+#bcont <- read.csv("bee control.csv")
+bcont
+bcon <- as.matrix(bcont[,2:21])
+dimnames(bcon)[[1]] <- bcont[,1]
+
+```
+
+```{r}
+plotweb(wrest, text.rot=90, empty = FALSE, ybig = 2.0, y.width.high = 0.03, y.width.low = 0.03, col.interaction = adjustcolor("blue", alpha.f = 0.5), labsize = 0.95)
+
+plotweb(wcon, text.rot=90, empty = FALSE, ybig = 2.0, y.width.high = 0.03, y.width.low = 0.03, col.interaction = adjustcolor("red", alpha.f = 0.5), labsize = 0.95)
+
+plotweb(brest, text.rot=90, empty = FALSE, ybig = 2.0, y.width.high = 0.03, y.width.low = 0.03, col.interaction = adjustcolor("blue", alpha.f = 0.5), labsize = 0.95)
+
+plotweb(bcon, text.rot=90, empty = FALSE, ybig = 2.0, y.width.high = 0.03, y.width.low = 0.03, col.interaction = adjustcolor("red", alpha.f = 0.5), labsize = 0.95)
+```
+##network metrics by site and organism by genus
+
+```{r}
+#WASPS --- WASPS --- WASPS
+
+wwhor.1 <- read.csv("wwhor.csv")
+wwhor <- wwhor.1[,2:8]
+dimnames(wwhor)[[1]] <- wwhor.1[,1]
+
+wwhoc.1 <- read.csv("wwhoc.csv")
+wwhoc <- wwhoc.1[,2:11]
+dimnames(wwhoc)[[1]] <- wwhoc.1[,1]
+
+wstor.1 <- read.csv("wstor.csv")
+wstor <- wstor.1[,2:9]
+dimnames(wstor)[[1]] <- wstor.1[,1]
+
+wstoc.1 <- read.csv("wstoc.csv")
+wstoc <- wstoc.1[,2:13]
+dimnames(wstoc)[[1]] <- wstoc.1[,1]
+
+wsmer.1 <- read.csv("wsmer.csv")
+wsmer <- wsmer.1[,2:8]
+dimnames(wsmer)[[1]] <- wsmer.1[,1]
+
+wsmir.1 <- read.csv("wsmir.csv")
+wsmir <- wsmir.1[,2:3]
+dimnames(wsmir)[[1]] <- wsmir.1[,1]
+
+wgutr.1 <- read.csv("wgutr.csv")
+wgutr <- wgutr.1[,2:12]
+dimnames(wgutr)[[1]] <- wgutr.1[,1]
+
+wgutc.1 <- read.csv("wgutc.csv")
+wgutc <- wgutc.1[,2:6]
+dimnames(wgutc)[[1]] <- wgutc.1[,1]
+
+#BEES --- BEES --- BEES
+
+bwhor.1 <- read.csv("bwhor.csv")
+bwhor <- bwhor.1[,2:14]
+dimnames(bwhor)[[1]] <- bwhor.1[,1]
+
+bwhoc.1 <- read.csv("bwhoc.csv")
+bwhoc <- bwhoc.1[,2:10]
+dimnames(bwhoc)[[1]] <- bwhoc.1[,1]
+
+bstor.1 <- read.csv("bstor.csv")
+bstor <- bstor.1[,2:18]
+dimnames(bstor)[[1]] <- bstor.1[,1]
+
+bstoc.1 <- read.csv("bstoc.csv")
+bstoc <- bstoc.1[,2:17]
+dimnames(bstoc)[[1]] <- bstoc.1[,1]
+
+bsmir.1 <- read.csv("bsmir.csv")
+bsmir <- bsmir.1[,2:14]
+dimnames(bsmir)[[1]] <- bsmir.1[,1]
+
+bsmer.1 <- read.csv("bsmer.csv")
+bsmer <- bsmer.1[,2:18]
+dimnames(bsmer)[[1]] <- bsmer.1[,1]
+
+bgutr.1 <- read.csv("bgutr.csv")
+bgutr <- bgutr.1[,2:21]
+dimnames(bgutr)[[1]] <- bgutr.1[,1]
+
+bgutc.1 <- read.csv("bgutc.csv")
+bgutc <- bgutc.1[,2:11]
+dimnames(bgutc)[[1]] <- bgutc.1[,1]
+
+#COMBINED --- COMBINED --- COMBINED
+
+cwhor.1 <- read.csv("cwhor.csv")
+cwhor <- cwhor.1[,2:21]
+dimnames(cwhor)[[1]] <- cwhor.1[,1]
+
+cwhoc.1 <- read.csv("cwhoc.csv")
+cwhoc <- cwhoc.1[,2:20]
+dimnames(cwhoc)[[1]] <- cwhoc.1[,1]
+
+cstoc.1 <- read.csv("cstoc.csv")
+cstoc <- cstoc.1[,2:29]
+dimnames(cstoc)[[1]] <- cstoc.1[,1]
+
+cstor.1 <- read.csv("cstor.csv")
+cstor <- cstor.1[,2:26]
+dimnames(cstor)[[1]] <- cstor.1[,1]
+
+csmir.1 <- read.csv("csmir.csv")
+csmir <- csmir.1[,2:16]
+dimnames(csmir)[[1]] <- csmir.1[,1]
+
+csmer.1 <- read.csv("csmer.csv")
+csmer <- csmer.1[,2:26]
+dimnames(csmer)[[1]] <- csmer.1[,1]
+
+cgutc.1 <- read.csv("cgutc.csv")
+cgutc <- cgutc.1[,2:16]
+dimnames(cgutc)[[1]] <- cgutc.1[,1]
+
+cgutr.1 <- read.csv("cgutr.csv")
+cgutr <- cgutr.1[,2:32]
+dimnames(cgutr)[[1]] <- cgutr.1[,1]
+```
+
+```{r}
+value <- c(networklevel(wwhor, "NODF"),
+           networklevel(wwhor, "links per species"),
+           networklevel(wwhor, "cluster coefficient"),
+           networklevel(wwhor, "ISA"),
+           
+           networklevel(wwhoc, "NODF"),
+           networklevel(wwhoc, "links per species"),
+           networklevel(wwhoc, "cluster coefficient"),
+           networklevel(wwhoc, "ISA"),
+           
+           networklevel(wstor, "NODF"),
+           networklevel(wstor, "links per species"),
+           networklevel(wstor, "cluster coefficient"),
+           networklevel(wstor, "ISA"),
+           
+           networklevel(wstoc, "NODF"),
+           networklevel(wstoc, "links per species"),
+           networklevel(wstoc, "cluster coefficient"),
+           networklevel(wstoc, "ISA"),
+           
+           networklevel(wsmir, "NODF"),
+           networklevel(wsmir, "links per species"),
+           networklevel(wsmir, "cluster coefficient"),
+           networklevel(wsmir, "ISA"),
+           
+           networklevel(wsmer, "NODF"),
+           networklevel(wsmer, "links per species"),
+           networklevel(wsmer, "cluster coefficient"),
+           networklevel(wsmer, "ISA"),
+           
+           networklevel(wgutr, "NODF"),
+           networklevel(wgutr, "links per species"),
+           networklevel(wgutr, "cluster coefficient"),
+           networklevel(wgutr, "ISA"),
+           
+           networklevel(wgutc, "NODF"),
+           networklevel(wgutc, "links per species"),
+           networklevel(wgutc, "cluster coefficient"),
+           networklevel(wgutc, "ISA"),
+           
+           #combined data
+           networklevel(cwhor, "NODF"),
+           networklevel(cwhor, "links per species"),
+           networklevel(cwhor, "cluster coefficient"),
+           networklevel(cwhor, "ISA"),
+           
+           networklevel(cwhoc, "NODF"),
+           networklevel(cwhoc, "links per species"),
+           networklevel(cwhoc, "cluster coefficient"),
+           networklevel(cwhoc, "ISA"),
+           
+           networklevel(cstor, "NODF"),
+           networklevel(cstor, "links per species"),
+           networklevel(cstor, "cluster coefficient"),
+           networklevel(cstor, "ISA"),
+           
+           networklevel(cstoc, "NODF"),
+           networklevel(cstoc, "links per species"),
+           networklevel(cstoc, "cluster coefficient"),
+           networklevel(cstoc, "ISA"),
+           
+           networklevel(csmir, "NODF"),
+           networklevel(csmir, "links per species"),
+           networklevel(csmir, "cluster coefficient"),
+           networklevel(csmir, "ISA"),
+           
+           networklevel(csmer, "NODF"),
+           networklevel(csmer, "links per species"),
+           networklevel(csmer, "cluster coefficient"),
+           networklevel(csmer, "ISA"),
+           
+           networklevel(cgutr, "NODF"),
+           networklevel(cgutr, "links per species"),
+           networklevel(cgutr, "cluster coefficient"),
+           networklevel(cgutr, "ISA"),
+           
+           networklevel(cgutc, "NODF"),
+           networklevel(cgutc, "links per species"),
+           networklevel(cgutc, "cluster coefficient"),
+           networklevel(cgutc, "ISA"),
+           
+           #bee data
+           networklevel(bwhor, "NODF"),
+           networklevel(bwhor, "links per species"),
+           networklevel(bwhor, "cluster coefficient"),
+           networklevel(bwhor, "ISA"),
+           
+           networklevel(bwhoc, "NODF"),
+           networklevel(bwhoc, "links per species"),
+           networklevel(bwhoc, "cluster coefficient"),
+           networklevel(bwhoc, "ISA"),
+           
+           networklevel(bstor, "NODF"),
+           networklevel(bstor, "links per species"),
+           networklevel(bstor, "cluster coefficient"),
+           networklevel(bstor, "ISA"),
+           
+           networklevel(bstoc, "NODF"),
+           networklevel(bstoc, "links per species"),
+           networklevel(bstoc, "cluster coefficient"),
+           networklevel(bstoc, "ISA"),
+           
+           networklevel(bsmir, "NODF"),
+           networklevel(bsmir, "links per species"),
+           networklevel(bsmir, "cluster coefficient"),
+           networklevel(bsmir, "ISA"),
+           
+           networklevel(bsmer, "NODF"),
+           networklevel(bsmer, "links per species"),
+           networklevel(bsmer, "cluster coefficient"),
+           networklevel(bsmer, "ISA"),
+           
+           networklevel(bgutr, "NODF"),
+           networklevel(bgutr, "links per species"),
+           networklevel(bgutr, "cluster coefficient"),
+           networklevel(bgutr, "ISA"),
+           
+           networklevel(bgutc, "NODF"),
+           networklevel(bgutc, "links per species"),
+           networklevel(bgutc, "cluster coefficient"),
+           networklevel(bgutc, "ISA")
+        
+)
+
+pollrich <- c(rep(ncol(wwhor),6), rep(ncol(wwhoc),6), rep(ncol(wstor),6), rep(ncol(wstoc),6), rep(ncol(wsmir),6), rep(ncol(wsmer),6), rep(ncol(wgutr),6), rep(ncol(wgutc),6),
+              rep(ncol(cwhor),6), rep(ncol(cwhoc),6), rep(ncol(cstor),6), rep(ncol(cstoc),6), rep(ncol(csmir),6), rep(ncol(csmer),6), rep(ncol(cgutr),6), rep(ncol(cgutc),6),
+              rep(ncol(bwhor),6), rep(ncol(bwhoc),6), rep(ncol(bstor),6), rep(ncol(bstoc),6), rep(ncol(bsmir),6), rep(ncol(bsmer),6), rep(ncol(bgutr),6), rep(ncol(bgutc),6))
+
+plantrich <- c(rep(nrow(wwhor),6), rep(nrow(wwhoc),6), rep(nrow(wstor),6), rep(nrow(wstoc),6), rep(nrow(wsmir),6), rep(nrow(wsmer),6), rep(nrow(wgutr),6), rep(nrow(wgutc),6),
+              rep(nrow(cwhor),6), rep(nrow(cwhoc),6), rep(nrow(cstor),6), rep(nrow(cstoc),6), rep(nrow(csmir),6), rep(nrow(csmer),6), rep(nrow(cgutr),6), rep(nrow(cgutc),6),
+              rep(nrow(bwhor),6), rep(nrow(bwhoc),6), rep(nrow(bstor),6), rep(nrow(bstoc),6), rep(nrow(bsmir),6), rep(nrow(bsmer),6), rep(nrow(bgutr),6), rep(nrow(bgutc),6))
+
+sitepair <- rep(c(rep("who", 12),
+              rep("sto", 12),
+              rep("smi", 6),
+              rep("sme", 6),
+              rep("gut", 12)), 3)
+
+site <- rep(c(rep("whor", 6),
+              rep("whoc", 6),
+              rep("stor", 6),
+              rep("stoc", 6),
+              rep("smir", 6),
+              rep("smer", 6),
+              rep("gutr", 6),
+              rep("gutc", 6)), 3)
+
+Treatment <- rep(c(rep("Prairie Strip", 6),
+               rep("Field Margin", 6), 
+               rep("Prairie Strip", 6),
+               rep("Field Margin", 6), 
+               rep("Prairie Strip", 6),
+               rep("Prairie Strip", 6),
+               rep("Prairie Strip", 6),
+               rep("Field Margin", 6)),3)
+
+metric <- rep(c("NODF", "links per species", "CC Overall", "CC Pollinator", "CC Plants", "ISA"), 24)
+
+Organism <- c(rep("Wasp", 48), rep("Combined", 48), rep("Bee", 48))
+
+data <- data.frame(site, sitepair, Treatment, Organism, metric, value, pollrich, plantrich)
+               
+write.csv(data, "raw networks.csv")
+```
+
+```{r}
+data <- read.csv("raw networks.csv")
+
+ggplot(data, aes(x = Organism, y = value, color = Organism)) + geom_point() + geom_path(aes(group = site), col = "black") + facet_wrap(~metric, scales = "free") + ylab("Metric Value")
+
+ggplot(data, aes(x = plantrich+pollrich, y = value, color = organism)) + geom_point() + facet_wrap(~metric, scales = "free") + geom_smooth()
+```
+
+```{r}
+#combined, bee, wasp
+
+met <- c("CC Pollinator", "CC Overall", "CC Plants", "ISA", "links per species", "NODF")
+
+for (i in 1:length(met)) {
+  #for both sites combined
+  #datat = data
+  
+  #for one site treatment
+  datat <- subset(data, data$metric == met[i])
+  
+  model <- aov(value ~ Organism, data = datat)
+  
+  print(summary(model))
+  
+}
+
+data
+```
+
+##Network by site
+```{r}
+ggplot(data, aes(x = Treatment, y = value, color = Treatment, group = sitepair)) + geom_point() + geom_path() + facet_wrap(Organism~metric, scales = "free", ncol = 6) + theme(axis.text.x=element_blank(),axis.ticks.x=element_blank())
+```
+
+##NULL MODELS
+
+```{r}
+site <- c()
+organism <- c()
+pfinal <- c()
+zfinal <- c()
+metfinal <- c()
+```
+
+
+```{r}
+#gutr, gutc, smer, smir, stor, stoc, whor, whoc
+#no smec, smic
+
+#wasp, bee, combined
+  
+net = csmer
+site <- c(site, rep("smer",6))
+organism <- c(organism, rep("combined", 6))
+
+met = c("ISA", "links per species", "NODF")
+pc <- c()
+zc <- c()
+
+#FOR ALL BUT CLUSTER COEFFICIENT
+for (i in 1:length(met)) {
+  temp <- ifelse(net == 0, 0, 1)
+  obs <- unlist(networklevel(temp, index = met[i]))
+  nulls <- nullmodel(temp, N=1000, method = 5, autotransform="equiprobable")
+  null <- unlist(sapply(nulls, networklevel, index = met[i]))
+  
+  praw <- sum(null>obs) / length(null)
+  pc <- c(pc, ifelse(praw > 0.5, 1-praw, praw))    # P-value
+  zc <- c(zc, ((obs - mean(null)) / sd(null))) #Z-score
+  
+}
+
+#CLUSTER COEFFICIENT ONLY
+for (i in 1) {
+  temp <- ifelse(net == 0, 0, 1)
+  obs <- unlist(networklevel(temp, index = "cluster coefficient"))
+  nulls <- nullmodel(temp, N=1000, method = 5, autotransform="equiprobable")
+  null <- unlist(sapply(nulls, networklevel, index = "cluster coefficient"))
+  
+  for (j in 1:length(obs)) {
+      praw <- sum(null[j,]>obs[j]) / length(null[j,])
+      pc <- c(pc, ifelse(praw > 0.5, 1-praw, praw)) #p-value
+      zc <- c(zc, (obs[j] - mean(null[j,]) / sd(null[j,])))
+            }
+}
+
+pfinal <- c(pfinal, pc)
+zfinal <- c(zfinal, zc)
+metfinal <- c(metfinal, met, "CC Overall", "CC Pollinators", "CC Plants")
+
+#setwd("")
+
+table <- data.frame(site, organism, pfinal, zfinal, metfinal)
+
+write.csv(table, "nullmodels by genera.csv")
+table
+```
+
+```{r}
+data <- read.csv("C:/Users/katie/Desktop/wasps/bwc by genera/nullmodels by genera.csv")
+
+data
+
+ggplot(table, aes(y = pfinal, x = organism, pch = organism, color = site)) + geom_point(position = "jitter") + facet_wrap(~metfinal, scales = "free") + ylab("P-Values") + xlab("Network Pollinators")
+
+ggplot(table, aes(y = zfinal, x = organism, pch = organism, color = site)) + geom_point(position = "jitter") + facet_wrap(~metfinal, scales = "free") + ylab("Z-Scores") + xlab("Network Pollinators")
+
+```
+
+
+##Rarefaction
+```{r}
+rcrare <- function(x, r, c, ind) {
+ test <- vector(mode = "numeric", length =  500)
+ ComLoop <- vector(mode = "numeric", length =  500)
+  for(i in seq_along(ComLoop)) {
+  m1 <- x[sample(x = seq_len(nrow(x)), size = r), sample(x = seq_len(ncol(x)), size = c)]
+  
+ test[[i]] <- networklevel(m1, index = ind)
+  }
+ print(mean(test))
+}
+
+rcrare.cc <- function(x, r, c, ind) {
+ test.cc <- vector(mode = "numeric", length =  500)
+ test.pl <- vector(mode = "numeric", length =  500)
+ test.po <- vector(mode = "numeric", length =  500)
+ ComLoop <- vector(mode = "numeric", length =  500)
+  for(i in seq_along(ComLoop)) {
+  m1 <- x[sample(x = seq_len(nrow(x)), size = r), sample(x = seq_len(ncol(x)), size = c)]
+  
+ test.cc[[i]] <- networklevel(m1, index = ind)[1] #overall
+ test.po[[i]] <- networklevel(m1, index = ind)[2] #higher level
+ test.pl[[i]] <- networklevel(m1, index = ind)[3] #lower level
+  }
+ print(c(mean(test.cc), mean(test.po), mean(test.pl)))
+}
+
+
+value.rar.func <- function (net, rc) {
+  temp <- c(rcrare.cc(net, rc[1], rc[2], "cluster coefficient"),
+            rcrare(net, rc[1], rc[2], "NODF"),
+            rcrare(net, rc[1], rc[2], "links per species"),
+            rcrare(net, rc[1], rc[2], "ISA"))
+}
+```
+
+```{r}
+value <- c(value.rar.func(wwhor, c(26,7)),
+           value.rar.func(cwhor, c(26,7)),
+           value.rar.func(bwhor, c(26,7)),
+           
+           value.rar.func(wwhoc, c(19,9)),
+           value.rar.func(cwhoc, c(19,9)),
+           value.rar.func(bwhoc, c(19,9)),
+        
+           value.rar.func(wstor, c(22,8)),
+           value.rar.func(cstor, c(22,8)),
+           value.rar.func(bstor, c(22,8)),
+           
+           value.rar.func(wstoc, c(20,12)),
+           value.rar.func(cstoc, c(20,12)),
+           value.rar.func(bstoc, c(20,12)),
+           
+           value.rar.func(wsmir, c(19,2)), #too small :(
+           value.rar.func(csmir, c(19,13)),
+           value.rar.func(bsmir, c(19,13)),
+                          
+           value.rar.func(wsmer, c(25,7)),
+           value.rar.func(csmer, c(25,7)),
+           value.rar.func(bsmer, c(25,7)),
+           
+           value.rar.func(wgutr, c(28,11)),
+           value.rar.func(cgutr, c(28,11)),
+           value.rar.func(bgutr, c(28,11)),
+           
+           value.rar.func(wgutc, c(15,5)), #too small :(
+           value.rar.func(cgutc, c(15,10)),
+           value.rar.func(bgutc, c(15,10)))
+
+site <- c(rep("whor", 18), rep("whoc", 18), rep("stor", 18), rep("stoc", 18), rep("smir", 18), rep("smer", 18), rep("gutr", 18), rep("gutc", 18))
+
+treatment <- c(rep(c(rep("r", 18), rep("c", 18)), 2), rep("r", 54), rep("c", 18))
+
+metric <- c(rep(c("CC Overall", "CC Pollinators", "CC Plants", "NODF", "Links per Species", "ISA"), 24))
+
+Organism <- c(rep(c(rep("Wasp", 6), rep("Combined", 6), rep("Bee", 6)), 8))
+           
+data <- data.frame(site, treatment, Organism, metric, value)
+data$site <- as.factor(data$site)
+
+write.csv(data, "rarified networks.csv")
+```
+
+```{r}
+data <- read.csv("rarified networks.csv")
+
+ggplot(data, aes(x = Organism, y = value, color = Organism)) + geom_point() + geom_path(col = "black", aes(group = site)) +  facet_wrap(~metric, scales = "free") + ylab("Metric Value")
+```
+
+###STATS
+####Wilcoxon
+```{r}
+#combined, bee, wasp
+org <- c("Combined", "Wasp")
+#Prairie Strip, Field Margin
+met <- c("CC Pollinators", "CC Overall", "CC Plants", "ISA", "Links per Species", "NODF")
+
+for (i in 1:length(met)) {
+  #for both sites combined
+  #datat = data
+  
+  #for one site treatment
+  datat <- data
+  
+  temp1 <- subset(datat, datat$organism == org[1])
+  temp1 <- subset(temp1, temp1$metric == met[i])
+  
+  temp2 <- subset(datat, datat$organism == org[2])
+  temp2 <- subset(temp2, temp2$metric == met[i])
+  
+  print(wilcox.test(temp1$value, temp2$value, paired = TRUE))
+  
+}
+```
+
+####ANOVA
+```{r}
+data <- read.csv("rarified networks.csv")
+
+#combined, bee, wasp
+org <- c("Bee", "Combined", "Wasp")
+#Prairie Strip, Field Margin
+met <- c("CC Pollinators", "CC Overall", "CC Plants", "ISA", "Links per Species", "NODF")
+
+for (i in 1:length(met)) {
+  #for both sites combined
+  #datat = data
+  
+  #for one site treatment
+  datat <- subset(data, data$metric == met[i])
+  
+  model <- aov(value ~ Organism, data = datat)
+  
+  print(summary(model))
+  
+}
+data
+```
+
+#Wasp fidelity
+```{r}
+wpollen <- read.csv("pollen fidelity.csv")
+wpollen <- subset(wpollen, wpollen$include.in.analysis == "")
+
+library(ggplot2)
+
+wpollen$per.pollen <- as.numeric(as.character(wpollen$per.pollen))
+wpollen$pollen.density <- as.numeric(as.character(wpollen$pollen.density))
+wpollen$per.visit <- as.numeric(as.character(wpollen$per.visit))
+wpollen$new.fam <- ifelse(wpollen$subfamily == "nd", as.character(wpollen$family), as.character(wpollen$subfamily))
+wpollen <- subset(wpollen, wpollen$include.in.analysis == "")
+wpollen$new.fam <- as.factor(wpollen$new.fam)
+wpollen
+```
+
+
+```{r}
+ggplot(data = wpollen, aes(y = pollen.density, x = reorder(fam.code, pollen.density), color = insect)) + geom_boxplot(position = "dodge2") + theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1)) + xlab("") + ylab("Pollen Density")
+
+ggplot(data = wpollen, aes(y = per.pollen, x = reorder(fam.code, per.pollen), color = insect)) + geom_boxplot(position = "dodge2") + theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1)) + xlab("") + ylab("Pollen Fidelity")
+
+ggplot(data = wpollen, aes(y = per.visit, x = reorder(fam.code, per.visit), color = insect)) + geom_boxplot(position = "dodge2") + theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1)) + xlab("") + ylab("Visit Fidelity")
+```
+
+```{r}
+blev <- c("andrenidae", "apidae", "colletidae", "halictidae", "megachilidae")
+wlev <- c("braconidae", "chrysididae", "crabronidae", "ichneumonidae", "sphecidae", "vespidae")
+
+bee.pt <- subset(wpollen, wpollen$insect == "bee")
+wasp.pt <- subset(wpollen, wpollen$insect == "wasp")
+
+#pollen.density, per.pollen, per.visit
+for (i in (1:length(blev))) {
+  for (j in (1:length(wlev))) {
+    
+    bee.pt1 <- na.omit(subset(bee.pt$per.visit, bee.pt$family == blev[i])) #change the metric
+    
+    wasp.pt1 <- na.omit(subset(wasp.pt$per.visit, wasp.pt$family == wlev[j])) #change the metric
+    
+    temp <- wilcox.test(bee.pt1, wasp.pt1)
+    
+    temp2 <- ( (mean(bee.pt1) - mean(wasp.pt1)) / sqrt((var(bee.pt1)^2 + var(wasp.pt1)^2)/2) )
+    
+    print(paste(blev[i],"  ",wlev[j]))
+    print(temp)
+    print(paste(temp2))
+    
+  }
+}
+
+  
+#bee.pt1 <- na.omit(subset(bee.pt$per.visit, bee.pt$family == blev[5]))
+#histogram(bee.pt, ylab = "per.visit")
+
+#wasp.pt1 <- na.omit(subset(wasp.pt$per.pollen, wasp.pt$family == wlev[6]))
+#histogram(wasp.pt1, xlab = wlev[6], ylab = "per.pollen", col = "red")
+```
+
+
+#NMDS Wasp + Bee Community Visitation
+##overall by fam
+```{r}
+comp <- read.csv("overall.csv")
+comp.names <- comp[1:65,1]
+
+comp.m <- as.matrix(comp[1:65,2:14]) #one ex column, two ex rows
+comp.m <- t(comp.m)
+
+comp.cat <- read.csv("overall catalogue.csv")
+comp.bc <- vegdist(comp.m, 'bray')
+
+
+#nMDS by hand
+start <- initMDS(comp.bc)
+comp.mds <- isoMDS(comp.bc, start)
+plot(comp.mds$points, type = 'n', xlim = c(-20,23))
+text(comp.mds$points, dimnames(comp.mds$points)[[1]])
+
+comp.envfit <- envfit(comp.mds ~ organism, data = comp.cat)
+
+plot(comp.mds$points, type = 'n', xlim = c(-16,21))
+text(comp.mds$points, dimnames(comp.mds$points)[[1]])
+ordihull(comp.mds, comp.cat$organism, lty = c(1, 2))
+
+##STATS
+comp.envfit <- envfit(comp.mds ~ organism, data = comp.cat, permutations = 9999)
+
+comp.envfit
+```
+
+##by site and fam
+```{r}
+##PRAIRIE STRIPS --- PRAIRIE STRIPS --- PRAIRIE STRIPS
+
+comp <- read.csv("prairie strips.csv")
+comp
+comp.names <- comp[,1]
+comp.m <- as.matrix(comp[,2:13]) #one ex column, two ex rows
+comp.m <- t(comp.m)
+
+comp.cat <- read.csv("PS catalogue.csv")
+
+comp.bc <- vegdist(comp.m, 'bray')
+
+#nMDS by hand
+start <- initMDS(comp.bc)
+comp.mds <- isoMDS(comp.bc, start)
+
+plot(comp.mds$points, type = 'n', main = "Prairie Strips", xlim = c(-40,40), xlab = "NMDS1", ylab = "NMDS2")
+text(comp.mds$points, dimnames(comp.mds$points)[[1]])
+ordihull(comp.mds, comp.cat$organism, col = "red", lty = c(1,2))
+
+##STATS
+comp.envfit <- envfit(comp.mds ~ organism, data = comp.cat, permutations = 9999)
+
+comp.envfit
+```
+
+
+```{r}
+##FIELD MARGINS --- FIELD MARGINS --- FIELD MARGINS
+
+comp <- read.csv("field margins.csv")
+comp
+comp.names <- comp[,1]
+comp.m <- as.matrix(comp[,2:14]) #one ex column, two ex rows
+comp.m <- t(comp.m)
+
+comp.cat <- read.csv("FM catalogue.csv")
+
+comp.bc <- vegdist(comp.m, 'bray')
+
+#nMDS by hand
+start <- initMDS(comp.bc)
+comp.mds <- isoMDS(comp.bc, start)
+
+plot(comp.mds$points, type = 'n', main = "Field Margins", xlim=(c(-35,40)),xlab = "NMDS1", ylab = "NMDS2")
+text(comp.mds$points, dimnames(comp.mds$points)[[1]])
+ordihull(comp.mds, comp.cat$organism, col = "blue", lty = c(1,2))
+
+##STATS
+comp.envfit <- envfit(comp.mds ~ organism, data = comp.cat, permutations = 9999)
+
+comp.envfit
+```
+
+##By fam and season
+```{r}
+##EARLY --- EARLY --- EARLY
+
+comp <- read.csv("early.csv")
+comp
+comp.names <- comp[,1]
+comp.m <- as.matrix(comp[,2:14]) #one ex column, two ex rows
+comp.m <- t(comp.m)
+
+comp.cat <- read.csv("early catalogue.csv")
+
+comp.bc <- vegdist(comp.m, 'bray')
+
+#nMDS by hand
+start <- initMDS(comp.bc)
+comp.mds <- isoMDS(comp.bc, start)
+
+plot(comp.mds$points, type = 'n', main = "Early", xlim = c(-17,13), xlab = "NMDS1", ylab = "NMDS2")
+text(comp.mds$points, dimnames(comp.mds$points)[[1]])
+ordihull(comp.mds, comp.cat$organism, col = "red", lty = c(1,2))
+
+##STATS
+comp.envfit <- envfit(comp.mds ~ organism, data = comp.cat, permutations = 9999)
+
+comp.envfit
+```
+
+```{r}
+##LATE --- LATE --- LATE
+
+comp <- read.csv("late.csv")
+comp
+comp.names <- comp[,1]
+comp.m <- as.matrix(comp[,2:12]) #one ex column, two ex rows
+comp.m <- t(comp.m)
+
+comp.cat <- read.csv("late catalogue.csv")
+
+comp.bc <- vegdist(comp.m, 'bray')
+
+#nMDS by hand
+start <- initMDS(comp.bc)
+comp.mds <- isoMDS(comp.bc, start)
+
+plot(comp.mds$points, type = 'n', main = "Late", xlim = c(-20,15), xlab = "NMDS1", ylab = "NMDS2")
+text(comp.mds$points, dimnames(comp.mds$points)[[1]])
+ordihull(comp.mds, comp.cat$organism, col = "blue", lty = c(1,2))
+
+##STATS
+comp.envfit <- envfit(comp.mds ~ organism, data = comp.cat, permutations = 9999)
+
+comp.envfit
+```
+
+#Single Visit Deposition
+
+```{r}
+svd1 <- read.csv("C:/Users/katie/Documents/wasps/svd stigma.csv")
+svd <- subset(svd1, svd1$include.in.analysis != "n" | svd1$include.in.analysis != "c")
+svd
+```
+
+```{r}
+svd.lm <- lmer(total_pollen ~ (1|specimen_id) + final_group, data = svd)
+svd.emm <- emmeans(svd.lm, "final_group")
+pairs(svd.emm)
+```
+
+
+#Wasp and Beetle Data
+
+```{r}
+wbdata <- read.csv("wasp and beetle summary.csv")
+wbdata <- wbdata[1:114,]
+wbdata
+wbdata$density <- as.numeric(as.character(wbdata$density))
+```
+
+```{r}
+ggplot(wbdata, aes(x = species, y = percent_solidago, color = species)) + geom_boxplot() + ylab("Percent Solidago Pollen Grains") + xlab("Total Pollen Grains")
+
+ggplot(wbdata, aes(x = species, y = density, color = species)) + geom_boxplot() + ylab("Density of Solidago Pollen Grains") + xlab("Species") + theme(legend.position = "none")
+
+t.test(subset(wbdata$density, wbdata$species == "C. pensylvanicus"), subset(wbdata$density, wbdata$species =="P. fuscatus"))
+```
+
